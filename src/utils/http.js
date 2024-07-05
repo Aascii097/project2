@@ -36,7 +36,15 @@ http.interceptors.request.use(config => {
       config.headers.Authorization = `Bearer ${token}`
     }
   return config
-}, e => Promise.reject(e))
+}, e => {
+  if(e.code==='ECONNABORTED'){
+    ElMessage({
+      type:'error',
+      message:'请求超时'
+    })
+  }
+  return Promise.reject(e)
+})
 
 // axios响应式拦截器
 http.interceptors.response.use(res => {
