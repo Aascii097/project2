@@ -4,12 +4,12 @@ import LayoutHeader from './components/LayoutHeader.vue'
 import LayoutFooter from './components/LayoutFooter.vue'
 import LayoutFix from './components/LayoutFix.vue'
 import { onMounted } from 'vue'
-import {useCategoryStore} from '@/stores/categoryStore'
+import { useCategoryStore } from '@/stores/categoryStore'
 
 const categoryStore = useCategoryStore()
 
-onMounted(()=>{
-    categoryStore.getCategory()
+onMounted(() => {
+  categoryStore.getCategory()
 })
 </script>
 
